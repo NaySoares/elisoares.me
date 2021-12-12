@@ -26,7 +26,7 @@ const Work = () => (
             <span>ReactJs</span>
           </ListItem>
         </List>
-        <WorkImage src="../../public/works/snowGirl.jpg" alt="snowGirl" />
+        <WorkImage src="/public/works/snowGirl.jpg" alt="snowGirl" />
       </Container>
     </Layout>
 );
