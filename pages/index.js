@@ -18,6 +18,9 @@ import Paragragh from "../components/paragraph";
 import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from "react-icons/io5";
 
 const Page = () => {
+  const profileImg = `/images/elienai${useColorModeValue("", "-dark")}.jpg`;
+  const colorButton = useColorModeValue("white", "black");
+  const bgButton = useColorModeValue("#319795", "pink.500");
   return (
     <Layout>
       <Container>
@@ -52,7 +55,7 @@ const Page = () => {
               maxWidth="100px"
               display="inline-block"
               borderRadius="full"
-              src="/images/elienai.jpg"
+              src={profileImg}
               alt="profile Image"
             />
           </Box>
@@ -75,7 +78,15 @@ const Page = () => {
             .
             <Box align="center" my={4}>
               <NextLink href="/works">
-                <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
+                <Button
+                  rightIcon={<ChevronRightIcon />}
+                  color={colorButton}
+                  bg={bgButton}
+                  _hover={{
+                    opacity: 0.7,
+                    transition: "all 0.3s ease"
+                  }}
+                >
                   Meu Portfólio
                 </Button>
               </NextLink>
@@ -100,7 +111,7 @@ const Page = () => {
               <Link href="http://github.com/NaySoares" target="_blank">
                 <Button
                   variant="ghost"
-                  colorScheme="teal"
+                  colorScheme={useColorModeValue("teal", "pink.500")}
                   leftIcon={<Icon as={IoLogoGithub} />}
                 >
                   @NaySoares
@@ -111,7 +122,7 @@ const Page = () => {
               <Link href="https://twitter.com/ElienaiSoares07" target="_blank">
                 <Button
                   variant="ghost"
-                  colorScheme="teal"
+                  colorScheme={useColorModeValue("teal", "pink.500")}
                   leftIcon={<Icon as={IoLogoTwitter} />}
                 >
                   @ElienaiSoares07
@@ -125,7 +136,7 @@ const Page = () => {
               >
                 <Button
                   variant="ghost"
-                  colorScheme="teal"
+                  colorScheme={useColorModeValue("teal", "pink.500")}
                   leftIcon={<Icon as={IoLogoInstagram} />}
                 >
                   @naysoares07

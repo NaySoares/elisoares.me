@@ -13,18 +13,19 @@ import {
   IconButton,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Logo from './logo'
+import Logo from "./logo";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import ThemeToggleButton from './theme-toggle-button'
+import ThemeToggleButton from "./theme-toggle-button";
 
 const LinkItem = ({ href, path, _target, children, ...props }) => {
   const active = path === href;
   const inactiveColor = useColorModeValue("gray200", "whiteAlpha.900");
+  const activeLink = useColorModeValue("glassTeal", "pink.500");
   return (
     <NextLink href={href} passHref>
       <Link
         p={2}
-        bg={active ? "glassTeal" : undefined}
+        bg={active ? activeLink : undefined}
         color={active ? "#202023" : inactiveColor}
         _target={_target}
         borderRadius={4}
@@ -99,11 +100,9 @@ const Navbar = (props) => {
                 <NextLink href="/posts" passHref>
                   <MenuItem as={Link}>Posts</MenuItem>
                 </NextLink>
-                <NextLink href="/" passHref>
-                  <MenuItem as={Link} href="https://github.com/NaySoares">
-                    GitHub
-                  </MenuItem>
-                </NextLink>
+                <MenuItem as={Link} href="https://github.com/NaySoares">
+                  GitHub
+                </MenuItem>
               </MenuList>
             </Menu>
           </Box>
