@@ -9,11 +9,13 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import Layout from "../components/layouts/article";
 import Section from "../components/section";
 import Paragragh from "../components/paragraph";
 
 const Page = () => {
   return (
+    <Layout>
     <Container>
       <Box
         borderRadius="lg"
@@ -86,6 +88,7 @@ const Page = () => {
         </Paragragh>
       </Section>
     </Container>
+    </Layout>
   );
 };
 
