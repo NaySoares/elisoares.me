@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Text, useColorModeValue } from '@chakra-ui/react'
-import styled from '@emotion/styled'
+import Link from "next/link";
+import Image from "next/image";
+import { Text, useColorModeValue } from "@chakra-ui/react";
+import styled from "@emotion/styled";
 
 const LogoBox = styled.span`
   font-weight: bold;
@@ -11,33 +11,33 @@ const LogoBox = styled.span`
   height: 30px;
   line-height: 20px;
   padding: 10px;
-  
-  &:hover{
+
+  &:hover {
     animation: shake 1s infinite;
   }
-  @keyframes shake{
-    0%{
-      transform: rotate(0)
+  @keyframes shake {
+    0% {
+      transform: rotate(0);
     }
-    50%{
-      transform: rotate(10deg)
+    50% {
+      transform: rotate(10deg);
     }
-    100%{
-      transform: rotate(0deg)
+    100% {
+      transform: rotate(0deg);
     }
   }
-`
+`;
 
 const Logo = () => {
-  //const footPrintImg = `/images/footprint${useColorModeValue('', '-dark')}.png`
+  const snowFlake = `/images/snowflake${useColorModeValue("", "-white")}.png`;
 
   return (
     <Link href="/">
       <a>
         <LogoBox>
-          {/*<Image src={footPrintImg} width={20} height={20} alt="logo" />*/}
+          <Image src={snowFlake} width={20} height={20} alt="logo" />
           <Text
-            color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+            color={useColorModeValue("gray.800", "whiteAlpha.900")}
             fontFamily='"Heebo", sans-serif'
             fontWeight="bold"
             ml={3}
@@ -47,7 +47,7 @@ const Logo = () => {
         </LogoBox>
       </a>
     </Link>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;
