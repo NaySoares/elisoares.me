@@ -46,7 +46,7 @@ const Navbar = (props) => {
       as="nav"
       w="100%"
       bg={useColorModeValue("#ffffff40", "#20202380")}
-      style={{ backdropFilter: "blur(10px)" }}
+      style={{ WebkitBackdropFilter: "blur(5px)" }}
       zIndex={1}
       {...props}
     >
@@ -78,6 +78,9 @@ const Navbar = (props) => {
           <LinkItem href="/posts" path={path}>
             Posts
           </LinkItem>
+          <LinkItem href="/snippets" path={path}>
+            Snippets
+          </LinkItem>
         </Stack>
 
         <Box flex={1} align="right">
@@ -99,6 +102,9 @@ const Navbar = (props) => {
                 </NextLink>
                 <NextLink href="/posts" passHref>
                   <MenuItem as={Link}>Posts</MenuItem>
+                </NextLink>
+                <NextLink href="/snippets" passHref>
+                  <MenuItem as={Link}>Snippets</MenuItem>
                 </NextLink>
                 <MenuItem as={Link} href="https://github.com/NaySoares">
                   GitHub
