@@ -1,4 +1,4 @@
-import { Container, Box, Heading, SimpleGrid, Divider} from "@chakra-ui/react";
+import { Container, Box, Heading, SimpleGrid, Divider } from "@chakra-ui/react";
 import Section from "../components/section";
 import { WorkGridItem } from "../components/grid-item";
 import Layout from "../components/layouts/article";
@@ -16,6 +16,7 @@ const Works = () => {
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
           <Section delay={0.1}>
             <WorkGridItem
+              path="works"
               id="snowgirl"
               title="Tema SnowGirl"
               thumbnail={snowGirl}
@@ -25,6 +26,7 @@ const Works = () => {
           </Section>
           <Section delay={0.2}>
             <WorkGridItem
+              path="works"
               id="snowphotos"
               title="SnowPhotos"
               thumbnail={snowPhotos}
