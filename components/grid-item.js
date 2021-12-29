@@ -1,6 +1,13 @@
 import NextLink from "next/link";
 import Image from "next/image";
-import { Box, Text, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import {
+  Box,
+  Text,
+  LinkBox,
+  LinkOverlay,
+  HStack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Global } from "@emotion/react";
 
 export const GridItem = ({ children, thumbnail, href, title }) => (
@@ -10,7 +17,7 @@ export const GridItem = ({ children, thumbnail, href, title }) => (
         src={thumbnail}
         alt={title}
         className="grid-item-thumbnail"
-        placeholder={"blur" | ''}
+        placeholder={"blur" | ""}
         height="150"
         width="250"
         loading="lazy"
@@ -23,9 +30,9 @@ export const GridItem = ({ children, thumbnail, href, title }) => (
   </Box>
 );
 
-export const WorkGridItem = ({ children, id, title, thumbnail }) => (
+export const WorkGridItem = ({ children, path, id, title, thumbnail }) => (
   <Box w="100%" align="center">
-    <NextLink href={`/works/${id}`}>
+    <NextLink href={`/${path}/${id}`}>
       <LinkBox cursor="pointer">
         <Image
           src={thumbnail}
@@ -33,7 +40,7 @@ export const WorkGridItem = ({ children, id, title, thumbnail }) => (
           className="grid-item-thumbnail"
           placeholder="blur"
         />
-        <LinkOverlay href={`works/${id}`}>
+        <LinkOverlay href={`${path}/${id}`}>
           <Text mt={2} fontSize={20} fontWeight="bold">
             {title}
           </Text>
@@ -43,6 +50,39 @@ export const WorkGridItem = ({ children, id, title, thumbnail }) => (
     </NextLink>
   </Box>
 );
+
+export function SnippetGridItem ({ language, href, title, date }) {
+  const colorHover = useColorModeValue("teal.500", "pink.500");
+  const backgroundHover = useColorModeValue("white", "");
+  return(
+  <Box
+    w="100%"
+    align="center"
+    borderRadius="5px"
+    bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
+    transition="0.5s ease"
+    _hover={{
+      background: backgroundHover,
+      color: colorHover,
+    }}
+  >
+    <LinkBox cursor="pointer">
+      <LinkOverlay href={href}>
+        <HStack
+          gap="10"
+          my={2}
+          py={3}
+          px={2}
+          justify="space-between"
+        >
+          <Text>{title}</Text>
+          <Text>{language}</Text>
+          <Text>{date}</Text>
+        </HStack>
+      </LinkOverlay>
+    </LinkBox>
+  </Box>
+  )};
 
 export const GridItemStyle = () => (
   <Global
