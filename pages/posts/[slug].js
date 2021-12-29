@@ -2,7 +2,7 @@ import Head from "next/head";
 import { getPrismicClient } from "../../services/prismic";
 import { RichText } from "prismic-dom";
 
-import { Heading, Box, Text} from "@chakra-ui/react";
+import styles from "./post.module.scss";
 
 const Post = ({ post }) => {
   return (
@@ -11,14 +11,15 @@ const Post = ({ post }) => {
         <title>{post.title} | E.Soares</title>
       </Head>
 
-      <main>
-        <article>
-          <Heading as="h2" variant="page-title" my={4}>
-            {post.title}
-          </Heading>
-          <Text my={2}>{post.updatedAt}</Text>
+      <main className={styles.container}>
+        <article className={styles.post}>
+          <h1>{post.title}</h1>
+          <time>{post.updatedAt}</time>
 
-          <Box dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div
+            className={styles.postContent}
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </article>
       </main>
     </>
