@@ -50,14 +50,6 @@ export const getStaticProps = async () => {
       slug: post.uid,
       cover: post.data.cover.url,
       title: RichText.asText(post.data.title),
-      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
-        "pt-BR",
-        {
-          day: "2-digit",
-          month: "long",
-          year: "numeric",
-        }
-      ),
     };
   });
 

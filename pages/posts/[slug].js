@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { getPrismicClient } from "../../services/prismic";
+import { Title } from "../../components/work";
 import { RichText } from "prismic-dom";
 
 import styles from "./post.module.scss";
@@ -10,6 +11,9 @@ const Post = ({ post }) => {
       <Head>
         <title>{post.title} | E.Soares</title>
       </Head>
+      <Title path="Posts" truePath="posts">
+        {post.title}
+      </Title>
 
       <main className={styles.container}>
         <article className={styles.post}>
@@ -32,8 +36,6 @@ export const getServerSideProps = async ({ req, params }) => {
   const { slug } = params;
   const prismic = getPrismicClient(req);
   const response = await prismic.getByUID("post", String(slug), {});
-
-  console.log(JSON.stringify(response, null, 2));
 
   const post = {
     slug,

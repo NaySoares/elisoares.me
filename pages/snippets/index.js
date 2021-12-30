@@ -1,6 +1,5 @@
 import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import Section from "../../components/section";
-import { WorkGridItem } from "../../components/grid-item";
 import { SnippetGridItem } from "../../components/grid-item";
 import Layout from "../../components/layouts/article";
 import Link from 'next/link';
@@ -9,10 +8,8 @@ import { getPrismicClient } from "../../services/prismic";
 import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
 
-import snowGirl from "../../public/works/snowGirl.jpg";
-
 const Snippets = ({ snippets }) => (
-  <Layout title="Posts">
+  <Layout title="Snippets">
     <Container>
       <Heading as="h4" fontSize={20} mb={4}>
         Snippets
@@ -26,7 +23,7 @@ const Snippets = ({ snippets }) => (
                   key={snippet.slug}
                   title={snippet.title}
                   language="JavaScript"
-                  date="Maio de 2021"
+                  date="Maio/2021"
                 />
               </a>
             </Link>
@@ -54,14 +51,6 @@ export const getStaticProps = async () => {
       slug: snippet.uid,
       cover: snippet.data.cover.url,
       title: RichText.asText(snippet.data.title),
-      updatedAt: new Date(snippet.last_publication_date).toLocaleDateString(
-        "pt-BR",
-        {
-          day: "2-digit",
-          month: "long",
-          year: "numeric",
-        }
-      ),
     };
   });
 
