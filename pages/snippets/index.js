@@ -41,7 +41,7 @@ export const getStaticProps = async () => {
   const response = await prismic.query(
     [Prismic.predicates.at("document.type", "snippet")],
     {
-      fetch: ["snippet.title", "snippet.cover"],
+      fetch: ["snippet.title"],
       pageSize: 100,
     }
   );
@@ -49,7 +49,6 @@ export const getStaticProps = async () => {
   const snippets = response.results.map((snippet) => {
     return {
       slug: snippet.uid,
-      cover: snippet.data.cover.url,
       title: RichText.asText(snippet.data.title),
     };
   });
