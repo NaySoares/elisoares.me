@@ -14,7 +14,7 @@ const Snippets = ({ snippets }) => (
       <Heading as="h4" fontSize={20} mb={4}>
         Snippets
       </Heading>
-      <Section delay={0.1}>
+      <Section delay={0.2}>
         <SimpleGrid columns={[1, 1, 1]} gap={1}>
           {snippets.map((snippet) => (
             <Link href={`/snippets/${snippet.slug}`}>
@@ -22,8 +22,8 @@ const Snippets = ({ snippets }) => (
                 <SnippetGridItem
                   key={snippet.slug}
                   title={snippet.title}
-                  language="JavaScript"
-                  date="Maio/2021"
+                  language={snippet.language}
+                  date={snippet.updatedAt}
                 />
               </a>
             </Link>
@@ -41,7 +41,7 @@ export const getStaticProps = async () => {
   const response = await prismic.query(
     [Prismic.predicates.at("document.type", "snippet")],
     {
-      fetch: ["snippet.title"],
+      fetch: ["snippet.title, snippet.body"],
       pageSize: 100,
     }
   );
@@ -50,6 +50,14 @@ export const getStaticProps = async () => {
     return {
       slug: snippet.uid,
       title: RichText.asText(snippet.data.title),
+      language: RichText.asText(snippet.data.body[0].primary.language),
+      updatedAt: new Date(snippet.last_publication_date).toLocaleDateString(
+        "pt-BR",
+        {
+          month: "long",
+          year: "numeric",
+        }
+      ),
     };
   });
 

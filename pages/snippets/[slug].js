@@ -7,16 +7,17 @@ import styles from "./snippet.module.scss";
 
 const Snippet = ({ snippet }) => (
   <Layout title="Snippet">
-    <Title
-      path="Snippets"
-      truePath="snippets"  
-    >{snippet.title}</Title>
+    <Title path="Snippets" truePath="snippets">
+      {snippet.title}
+    </Title>
 
     <main className={styles.container}>
       <article className={styles.post}>
         <div className="codeBlock">
           <CopyBlock
-            language={snippet.language}
+            language={
+              snippet.language == "Javascript" ? "js" : snippet.language
+            }
             text={snippet.code}
             showLineNumbers={false}
             theme={dracula}
