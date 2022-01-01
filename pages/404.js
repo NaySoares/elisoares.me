@@ -28,7 +28,7 @@ const NotFound = () => {
               transition: "all 0.3s ease",
             }}
           >
-          Retornar ao ínicio
+            Retornar ao início
           </Button>
         </Nextlink>
       </Box>
