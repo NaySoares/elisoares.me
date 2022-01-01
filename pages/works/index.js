@@ -15,17 +15,18 @@ const Works = ({ works }) => (
       <Section delay={0.1}>
         <SimpleGrid columns={[1, 1, 2]} gap={6}>
           {works.map((work, i) => (
-            <Section delay={Number(`0.${i + 1}`)}>
-              <WorkGridItem
-                key={work.slug}
-                path="works"
-                id={work.slug}
-                title={work.title}
-                thumbnail={work.cover}
-              >
-                {work.description}
-              </WorkGridItem>
-            </Section>
+            <div key={work.slug}>
+              <Section delay={Number(`0.${i + 1}`)}>
+                <WorkGridItem
+                  path="works"
+                  id={work.slug}
+                  title={work.title}
+                  thumbnail={work.cover}
+                >
+                  {work.description}
+                </WorkGridItem>
+              </Section>
+            </div>
           ))}
         </SimpleGrid>
       </Section>

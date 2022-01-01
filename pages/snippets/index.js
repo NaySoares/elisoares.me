@@ -2,7 +2,6 @@ import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import Section from "../../components/section";
 import { SnippetGridItem } from "../../components/grid-item";
 import Layout from "../../components/layouts/article";
-import Link from 'next/link';
 
 import { getPrismicClient } from "../../services/prismic";
 import Prismic from "@prismicio/client";
@@ -17,16 +16,13 @@ const Snippets = ({ snippets }) => (
       <Section delay={0.2}>
         <SimpleGrid columns={[1, 1, 1]} gap={1}>
           {snippets.map((snippet) => (
-            <Link href={`/snippets/${snippet.slug}`}>
-              <a>
-                <SnippetGridItem
-                  key={snippet.slug}
-                  title={snippet.title}
-                  language={snippet.language}
-                  date={snippet.updatedAt}
-                />
-              </a>
-            </Link>
+            <SnippetGridItem
+              key={snippet.slug}
+              title={snippet.title}
+              language={snippet.language}
+              date={snippet.updatedAt}
+              href={`/snippets/${snippet.slug}`}
+            />
           ))}
         </SimpleGrid>
       </Section>

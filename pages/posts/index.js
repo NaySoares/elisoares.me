@@ -2,7 +2,6 @@ import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import Layout from "../../components/layouts/article";
 import Section from "../../components/section";
 import { GridItem } from "../../components/grid-item";
-import Link from "next/link";
 
 import { getPrismicClient } from "../../services/prismic";
 import Prismic from "@prismicio/client";
@@ -17,15 +16,12 @@ const Posts = ({ posts }) => (
       <Section delay={0.1}>
         <SimpleGrid columns={[1, 2, 2]} gap={6}>
           {posts.map((post) => (
-            <Link href={`/posts/${post.slug}`}>
-              <a>
-                <GridItem
-                  key={post.slug}
-                  title={post.title}
-                  thumbnail={post.cover}
-                />
-              </a>
-            </Link>
+            <GridItem
+              key={post.slug}
+              title={post.title}
+              thumbnail={post.cover}
+              href={`/posts/${post.slug}`}
+            />
           ))}
         </SimpleGrid>
       </Section>
