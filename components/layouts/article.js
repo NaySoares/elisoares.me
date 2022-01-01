@@ -20,6 +20,7 @@ const Layout = ({ children, title }) => (
     <>
       {title && (
         <Head>
+          <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
           <title>{title} - E.Soares</title>
         </Head>
       )}
