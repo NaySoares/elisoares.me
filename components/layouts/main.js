@@ -9,7 +9,7 @@ const Main = ({ children, router }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Elienai Website" />
         <meta name="author" content="Elienai Soares" />
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
         <title>Elienai Soares - Homepage</title>
       </Head>
 
