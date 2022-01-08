@@ -72,9 +72,9 @@ const Page = () => {
             de um leve apego para com as anima&ccedil;&otilde;es s&atilde;o os
             pontos que se mostram em destaque. Caso tenha curiosidade confira
             algumas imagens editadas aqui:{" "}
-            <NextLink href="https://editions-gallery.vercel.app">
-              <Link>Galeria</Link>
-            </NextLink>
+            <Link href="http://editions-gallery.vercel.app">
+              Galeria
+            </Link>
             .
             <Box align="center" my={4}>
               <NextLink href="/works">
