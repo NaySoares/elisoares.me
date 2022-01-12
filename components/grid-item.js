@@ -1,4 +1,4 @@
-import NextLink from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import {
   Box,
@@ -32,7 +32,7 @@ export const GridItem = ({ children, thumbnail, href, title }) => (
 
 export const WorkGridItem = ({ children, path, id, title, thumbnail }) => (
   <Box w="100%" align="center">
-    <NextLink href={`/${path}/${id}`}>
+    <Link href={`/${path}/${id}`}>
       <LinkBox cursor="pointer">
         <Image
           src={thumbnail}
@@ -49,7 +49,7 @@ export const WorkGridItem = ({ children, path, id, title, thumbnail }) => (
         </LinkOverlay>
         <Text fontSize={14}>{children}</Text>
       </LinkBox>
-    </NextLink>
+    </Link>
   </Box>
 );
 
