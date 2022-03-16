@@ -1,8 +1,19 @@
 import styled from "@emotion/styled";
 
-const Paragraph = styled.p`
+export const Paragraph = styled.p`
   text-align: justify;
   text-indent: 1em;
+  margin-top: 1em;
 `;
 
-export default Paragraph;
+export const Quote = styled.p`
+  text-align: justify;
+  font-weight: bold;
+  text-indent: 1em;
+  margin-top: 1em;
+`;
+
+export const LinkQuote = styled.p`
+  font-weight: bold;
+  display: inline;
+`;
