@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 
 const NotFound = () => {
-  const bgButton = useColorModeValue("#319795", "pink.500");
+  const bgButton = useColorModeValue("#2B6CB0", "pink.500");
   const colorButton = useColorModeValue("white", "black");
   return (
     <Container>

@@ -1,4 +1,3 @@
-import NextLink from "next/link";
 import {
   Button,
   Container,
@@ -10,139 +9,140 @@ import {
   ListItem,
   Icon,
   useColorModeValue,
+  HStack,
 } from "@chakra-ui/react";
-import { ChevronRightIcon } from "@chakra-ui/icons";
+//import { ChevronRightIcon } from "@chakra-ui/icons";
 import Layout from "../components/layouts/article";
 import Section from "../components/section";
-import Paragragh from "../components/paragraph";
-import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub } from "react-icons/io5";
+import { Paragraph, Quote, LinkQuote } from "../components/paragraph";
+import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 
 const Page = () => {
   const profileImg = `/images/elienai${useColorModeValue("", "-dark")}.jpg`;
-  const colorButton = useColorModeValue("white", "black");
-  const bgButton = useColorModeValue("#319795", "pink.500");
+  const gradientText = useColorModeValue("#319795", "#D53F8C");
+  const gradientTextSecond = useColorModeValue("#5490FF", "#8257E6");
   return (
     <Layout>
-      <Container>
+      <Container minWidth="100%" mt={50}>
         <Box
-          borderRadius="lg"
-          bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
-          p={3}
+          p={5}
           mb={6}
           align="center"
         >
-          Bem-vindo, sou um desenvolvedor web, morando atualmente em
-          Bel&eacute;m do Par&aacute;!
+          <Heading
+            as="h2"
+            size="2xl"
+            variant="page-title"
+            css={{
+              "background-image": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
+              "background-size": "100%",
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color": "transparent"
+            }}>
+            O Di&aacute;rio de uma Jornada!
+          </Heading>
         </Box>
 
         <Box display={{ md: "flex" }}>
           <Box flexGrow={1}>
-            <Heading as="h2" variant="page-title">
-              Elienai Soares
+            <Heading as="h2" variant="page-title" size="lg" mb={5}>
+              Eli Soares
             </Heading>
-            <p>Developer, Designer, Gamer</p>
+            <Section delay={0.1}>
+              <Paragraph>
+                Sou um estudante de engenharia fascinado por tudo que a tecnologia pode fazer.
+              </Paragraph>
+
+              <Quote>
+                ”Tecnologia s&atilde;o as coisas, aparentemente, simples que transformam a vida no que ela &eacute;.”
+              </Quote>
+
+              <Paragraph>
+                Este site &eacute; um di&aacute;rio para toda a minha jornada em tecnologia, caso seja um recruiter veja a aba {" "} <Link href="/journey">
+                  <LinkQuote>
+                    Jornada
+                  </LinkQuote>
+                </Link>, sen&atilde;o, passe pelos posts e aproveite a estadia, aqui escrevo sobre tudo o que penso.
+              </Paragraph>
+            </Section>
           </Box>
+
           <Box
             flexShrink={0}
-            mt={{ base: 4, md: 0 }}
+            mt={{ base: 4, md: "55px" }}
             ml={{ md: 6 }}
             align="center"
           >
             <Image
               borderColor="whiteAlpha.800"
-              borderWidth={2}
+              borderWidth={0}
               borderStyle="solid"
-              maxWidth="100px"
+              maxWidth="300px"
               display="inline-block"
-              borderRadius="full"
+              borderRadius="20"
               src={profileImg}
               alt="profile Image"
             />
           </Box>
         </Box>
-        <Section delay={0.1}>
-          <Heading as="h3" variant="section-title">
-            Bio
-          </Heading>
-          <Paragragh>
-            Elienai &eacute; um estudante de engenharia fascinado por tudo que a
-            tecnologia pode fazer. Para ele, tecnologia s&atilde;o as coisas
-            (aparentemente) simples que transformam a vida em como ela &eacute;.
-            Dentre seus hobbys: desenhar, editar e construir imagens al&eacute;m
-            de um leve apego para com as anima&ccedil;&otilde;es s&atilde;o os
-            pontos que se mostram em destaque. Caso tenha curiosidade confira
-            algumas imagens editadas aqui:{" "}
-            <Link href="http://editions-gallery.vercel.app">
-              Galeria
-            </Link>
-            .
-            <Box align="center" my={4}>
-              <NextLink href="/works">
-                <Button
-                  rightIcon={<ChevronRightIcon />}
-                  color={colorButton}
-                  bg={bgButton}
-                  _hover={{
-                    opacity: 0.7,
-                    transition: "all 0.3s ease"
-                  }}
-                >
-                  Meu Portfólio
-                </Button>
-              </NextLink>
-            </Box>
-          </Paragragh>
-        </Section>
-        <Section delay={0.2}>
-          <Heading as="h3" variant="section-title">
-            Gosto de...
-          </Heading>
-          <Paragragh>
-            Música, Animação, Desenhar, Tocar Violão, Design, Desenvolvimento
-            Web, Cultura Japonesa.
-          </Paragragh>
-        </Section>
+
         <Section delay={0.3}>
           <Heading as="h3" variant="section-title">
-            Redes Sociais
+            Na Web...
           </Heading>
           <List>
-            <ListItem>
-              <Link href="http://github.com/NaySoares" target="_blank">
-                <Button
-                  variant="ghost"
-                  colorScheme={useColorModeValue("teal", "pink.500")}
-                  leftIcon={<Icon as={IoLogoGithub} />}
+            <HStack wrap="wrap">
+              <ListItem>
+                <Link href="http://github.com/NaySoares" target="_blank">
+                  <Button
+                    variant="ghost"
+                    colorScheme={useColorModeValue("blue", "pink.500")}
+                    leftIcon={<Icon as={IoLogoGithub} />}
+                  >
+                    NaySoares
+                  </Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link href="https://twitter.com/ElienaiSoares07" target="_blank">
+                  <Button
+                    variant="ghost"
+                    colorScheme={useColorModeValue("blue", "pink.500")}
+                    leftIcon={<Icon as={IoLogoTwitter} />}
+                  >
+                    @ElienaiSoares07
+                  </Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  href="https://www.instagram.com/naysoares07/"
+                  target="_blank"
                 >
-                  @NaySoares
-                </Button>
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link href="https://twitter.com/ElienaiSoares07" target="_blank">
-                <Button
-                  variant="ghost"
-                  colorScheme={useColorModeValue("teal", "pink.500")}
-                  leftIcon={<Icon as={IoLogoTwitter} />}
+                  <Button
+                    variant="ghost"
+                    colorScheme={useColorModeValue("blue", "pink.500")}
+                    leftIcon={<Icon as={IoLogoInstagram} />}
+                  >
+                    @naysoares07
+                  </Button>
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  href="https://linkedin.com/in/elienai-soares"
+                  target="_blank"
                 >
-                  @ElienaiSoares07
-                </Button>
-              </Link>
-            </ListItem>
-            <ListItem>
-              <Link
-                href="https://www.instagram.com/naysoares07/"
-                target="_blank"
-              >
-                <Button
-                  variant="ghost"
-                  colorScheme={useColorModeValue("teal", "pink.500")}
-                  leftIcon={<Icon as={IoLogoInstagram} />}
-                >
-                  @naysoares07
-                </Button>
-              </Link>
-            </ListItem>
+                  <Button
+                    variant="ghost"
+                    colorScheme={useColorModeValue("blue", "pink.500")}
+                    leftIcon={<Icon as={IoLogoLinkedin} />}
+                  >
+                    elienai-soares
+                  </Button>
+                </Link>
+              </ListItem>
+            </HStack>
           </List>
         </Section>
       </Container>
