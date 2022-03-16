@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Text, useColorModeValue } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 
@@ -29,20 +28,31 @@ const LogoBox = styled.span`
 `;
 
 const Logo = () => {
-  const snowFlake = `/images/snowflake${useColorModeValue("", "-white")}.png`;
-
   return (
     <Link href="/">
       <a>
         <LogoBox>
-          <Image src={snowFlake} width={20} height={20} alt="logo" />
           <Text
             color={useColorModeValue("gray.800", "whiteAlpha.900")}
             fontFamily='"Heebo", sans-serif'
             fontWeight="bold"
             ml={3}
           >
-            E.Soares
+            Eli
+          </Text>
+            <Text
+            color={useColorModeValue("teal", "pink.500")}
+            fontFamily='"Heebo", sans-serif'
+            fontWeight="bold"
+          >
+            .
+          </Text>
+          <Text
+            color={useColorModeValue("gray.800", "whiteAlpha.900")}
+            fontFamily='"Heebo", sans-serif'
+            fontWeight="bold"
+          >
+            Soares
           </Text>
         </LogoBox>
       </a>
