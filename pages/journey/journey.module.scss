@@ -99,41 +99,16 @@
   z-index: 1;
 }
 
-.container.left .icon {
-  right: 56px;
-
-}
-
-.container.right .icon {
-  left: 56px;
-}
-
 .container .content {
   padding: 30px 30px 30px 30px;
   background: rgba(255, 255, 255, 0.01);
   position: relative;
   border-radius: 15px;
   border: 2px solid #00cf;
-
 }
-
 
 .container.right .content {
   padding: 30px 30px 30px 30px;
-}
-
-.container .content .cardHead h2 {
-  margin: 0 0 10px 0;
-  font-size: 18px;
-  font-weight: normal;
-  color: #ffffff;
-}
-
-.container .content .cardBody p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 22px;
-  color: #ffffff;
 }
 
 .tail{

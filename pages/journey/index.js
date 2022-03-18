@@ -1,4 +1,4 @@
-import {Container, Box, Text} from "@chakra-ui/react";
+import {Container, Box, Text } from "@chakra-ui/react";
 import Layout from "../../components/layouts/article";
 import Image from 'next/image';
 
@@ -7,6 +7,21 @@ import styles from "./journey.module.scss";
 const Journey = () => (
   <Layout title="Posts">
     <Container minWidth="100%" mt={50}>
+      <Box
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        marginLeft={"auto"}
+        marginRight={"auto"}
+        bg={"pink.500"}
+        w={200}
+        h={45}
+        borderRadius={8}
+      >
+        <Text as={"strong"}>
+          O Começo de tudo
+        </Text>
+      </Box>
       <div className={styles.timeline}>
         <div className={`${styles.container} ${styles.left}`}>
           <div className={styles.date}>Dez 2014 </div>
@@ -16,12 +31,29 @@ const Journey = () => (
                 width="50px" height="50px" src="http://github.com/NaySoares.png" alt="pic profile" />
               <Text as={"strong"} fontSize={"lg"} m={"3"} textAlign={"center"}>Ingresso na Faculdade</Text>
             </Box>
-            <div className={styles.cardBody}>
-              <Text as={"p"} textAlign={"justify"} pt={"3"}>
+            <Box>
+              <Text
+                as={"p"}
+                textAlign={"justify"}
+                pt={"3"}
+                fontSize={"md"}
+                m={0}
+                css={{
+                  "textIndent": "10px",
+                  "line-height": "22px"
+                }}
+                >
                 Fui aprovado para a faculdade de engenharia da computação pela Universidade Federal do Pará - UFPA, reconhecida com uma das melhores do Brasil.
               </Text>
-            </div>
-              <Text as={"a"} fontWeight={"bold"} pt={"5"} display={"inline-block"} marginLeft={"70%"} _hover={{"cursor": "pointer"}}>
+            </Box>
+              <Text
+                as={"a"}
+                fontWeight={"bold"}
+                pt={"5"}
+                display={"inline-block"}
+                marginLeft={"70%"} 
+                css={{"transition": "0.3s ease"}}
+                _hover={{"cursor": "pointer", "color": "pink.500"}}>
                 Ler Post
               </Text>
           </div>
@@ -29,21 +61,36 @@ const Journey = () => (
         <div className={`${styles.container} ${styles.right}`}>
           <div className={styles.date}>22 Oct</div>
           <div className={styles.content}>
-            <div className={styles.cardHead}>
+            <Box display={"flex"} flexDir={"row"} justifyContent={"center"} alignItems={"center"} className={styles.cardHead}>
               <Image className={styles.icon}
                 width="50px" height="50px" src="http://github.com/NaySoares.png" alt="pic profile" />
-              <h2>Ingresso na Faculdade</h2>
-            </div>
-            <div className={styles.cardBody}>
-              <p>
+              <Text as={"strong"} fontSize={"lg"} m={"3"} textAlign={"center"}>Ingresso na Faculdade</Text>
+            </Box>
+            <Box>
+            <Text
+                as={"p"}
+                textAlign={"justify"}
+                pt={"3"}
+                fontSize={"md"}
+                m={0}
+                css={{
+                  "textIndent": "10px",
+                  "line-height": "22px"
+                }}
+                >
                 Fui aprovado para a faculdade de engenharia da computação pela Universidade Federal do Pará - UFPA, reconhecida com uma das melhores do Brasil.
-              </p>
-            </div>
-            <div className={styles.cardFooter}>
-              <strong>
+              </Text>
+            </Box>
+              <Text
+                as={"a"}
+                fontWeight={"bold"}
+                pt={"5"}
+                display={"inline-block"}
+                marginLeft={"70%"}
+                css={{"transition": "0.3s ease"}}
+                _hover={{"cursor": "pointer", "color": "pink.500"}}>
                 Ler Post
-              </strong>
-            </div>
+              </Text>
           </div>
         </div>
       </div>
