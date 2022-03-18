@@ -1,4 +1,4 @@
-import { Container } from "@chakra-ui/react";
+import {Container, Box, Text} from "@chakra-ui/react";
 import Layout from "../../components/layouts/article";
 import Image from 'next/image';
 
@@ -11,21 +11,19 @@ const Journey = () => (
         <div className={`${styles.container} ${styles.left}`}>
           <div className={styles.date}>Dez 2014 </div>
           <div className={styles.content}>
-            <div className={styles.cardHead}>
+            <Box display={"flex"} flexDir={"row"} justifyContent={"center"} alignItems={"center"} className={styles.cardHead}>
               <Image className={styles.icon}
                 width="50px" height="50px" src="http://github.com/NaySoares.png" alt="pic profile" />
-              <h2>Ingresso na Faculdade</h2>
-            </div>
+              <Text as={"strong"} fontSize={"lg"} m={"3"} textAlign={"center"}>Ingresso na Faculdade</Text>
+            </Box>
             <div className={styles.cardBody}>
-              <p>
+              <Text as={"p"} textAlign={"justify"} pt={"3"}>
                 Fui aprovado para a faculdade de engenharia da computação pela Universidade Federal do Pará - UFPA, reconhecida com uma das melhores do Brasil.
-              </p>
+              </Text>
             </div>
-            <div className={styles.cardFooter}>
-              <strong>
+              <Text as={"a"} fontWeight={"bold"} pt={"5"} display={"inline-block"} marginLeft={"70%"} _hover={{"cursor": "pointer"}}>
                 Ler Post
-              </strong>
-            </div>
+              </Text>
           </div>
         </div>
         <div className={`${styles.container} ${styles.right}`}>
