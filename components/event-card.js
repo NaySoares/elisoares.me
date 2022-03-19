@@ -1,10 +1,11 @@
-import { Box, Flex, Text, Icon} from "@chakra-ui/react";
+import { Box, Flex, Text, Icon } from "@chakra-ui/react";
 import { FaCode, FaBookOpen, FaGraduationCap, FaStarOfLife } from 'react-icons/fa'
 
-const EventCard = ({ title, description, path, category }) => {
+const EventCard = ({ title, description, path, category, attachment }) => {
   let color = '#D53F8C'
   let icon
-  
+  let attachmentType
+
   switch (category) {
     case "course":
       color = '#D53F8C'
@@ -23,59 +24,76 @@ const EventCard = ({ title, description, path, category }) => {
       icon = FaStarOfLife
   }
 
+  switch (attachment) {
+    case 'certificate':
+      attachmentType = "Ver Certificado"
+      break;
+    case 'post':
+      attachmentType = "Ler Post"
+      break;
+    default:
+      attachmentType = null
+  }
+
   return (
     <Flex
-    align="center"
-    direction="column"
-    bg={"rgba(255,255,255,0.01)"}
-    p={30}
-    border={`2px solid ${color}`}
-    borderRadius={15}
-  >
-    <Box
-      display={"flex"}
-      flexDir={"row"}
-      justifyContent={"center"}
-      alignItems={"center"}
+      align="center"
+      direction="column"
+      bg={"rgba(255,255,255,0.01)"}
+      p={30}
+      border={`2px solid ${color}`}
+      borderRadius={15}
     >
-      <Icon as={icon} w={"30px"} h={"30px"} color={`${color}`} />
-    
-      <Text
-        as={"strong"}
-        fontSize={"lg"}
-        m={"3"}
-        textAlign={"center"}
+      <Box
+        display="flex"
+        flexDir="row"
+        justifyContent="center"
+        alignItems="center"
       >
-        {title}
-      </Text>
-    </Box>
-    <Box>
-      <Text
-        as={"p"}
-        textAlign={"justify"}
-        pt={"3"}
-        fontSize={"md"}
-        m={0}
-        css={{
-          "textIndent": "10px",
-          "line-height": "22px"
-        }}
-      >
-        {description}
-      </Text>
-    </Box>
-    <Text
-      as={"a"}
-      href={path}
-      fontWeight={"bold"}
-      pt={"5"}
-      display={"inline-block"}
-      marginLeft={"70%"}
-      css={{"transition": "0.3s ease"}}
-      _hover={{"cursor": "pointer", "color": `${color}`}}>
-      Ler Post
-    </Text>
-  </Flex>
+        <Icon as={icon} w="30px" h="30px" color={`${color}`} />
+
+        <Text
+          as="strong"
+          fontSize="lg"
+          m="3"
+          textAlign="center"
+        >
+          {title}
+        </Text>
+      </Box>
+      <Box>
+        <Text
+          as="p"
+          textAlign="justify"
+          pt="3"
+          fontSize="md"
+          m={0}
+          css={{
+            "textIndent": "10px",
+            "lineHeight": "22px"
+          }}
+        >
+          {description}
+        </Text>
+      </Box>
+      {attachmentType ?
+        <>
+          <Text
+            as="a"
+            href={path}
+            fontWeight="bold"
+            pt="5"
+            display="inline-block"
+            marginLeft="auto"
+            css={{ "transition": "0.3s ease" }}
+            _hover={{ "cursor": "pointer", "color": `${color}` }}>
+            {attachmentType}
+          </Text>
+        </> :
+        <>
+        </>
+      }
+    </Flex>
   )
 }
 
