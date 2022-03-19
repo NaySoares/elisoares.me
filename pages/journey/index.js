@@ -1,112 +1,125 @@
-import {Container, Box, Text } from "@chakra-ui/react";
+import { Container, Text, useColorModeValue, Flex, Image } from "@chakra-ui/react";
 import Layout from "../../components/layouts/article";
-import Image from 'next/image';
 
 import styles from "./journey.module.scss";
+import EventCard from "../../components/event-card";
 
-const Journey = () => (
-  <Layout title="Posts">
-    <Container minWidth="100%" mt={50}>
-      <Box
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        marginLeft={"auto"}
-        marginRight={"auto"}
-        bg={"pink.500"}
-        w={200}
-        h={45}
-        borderRadius={8}
-      >
-        <Text as={"strong"}>
-          O Começo de tudo
-        </Text>
-      </Box>
-      <div className={styles.timeline}>
-        <div className={`${styles.container} ${styles.left}`}>
-          <div className={styles.date}>Dez 2014 </div>
-          <div className={styles.content}>
-            <Box display={"flex"} flexDir={"row"} justifyContent={"center"} alignItems={"center"} className={styles.cardHead}>
-              <Image className={styles.icon}
-                width="50px" height="50px" src="http://github.com/NaySoares.png" alt="pic profile" />
-              <Text as={"strong"} fontSize={"lg"} m={"3"} textAlign={"center"}>Ingresso na Faculdade</Text>
-            </Box>
-            <Box>
-              <Text
-                as={"p"}
-                textAlign={"justify"}
-                pt={"3"}
-                fontSize={"md"}
-                m={0}
-                css={{
-                  "textIndent": "10px",
-                  "line-height": "22px"
-                }}
-                >
+
+const Journey = () => {
+  const colorDefault = useColorModeValue("#5490FF", "#D53F8C");
+
+  return (
+    <Layout title="Posts">
+      <Container minWidth="100%" mt={50}>
+        <Flex
+          className={styles.head}
+          alignItems={"center"}
+          justifyContent={"center"}
+          marginLeft={{ base: 0, md: "auto" }}
+          marginRight={"auto"}
+          bg={colorDefault}
+          w={200}
+          h={45}
+          borderRadius={8}
+        >
+          <Text as={"strong"}>
+            O começo de tudo
+          </Text>
+        </Flex>
+        <div className={styles.timeline}>
+          <div className={styles.lineCenter} style={{ background: `${colorDefault}` }} />
+          <div className={`${styles.container} ${styles.left}`}>
+            <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
+            <div className={styles.stick} style={{ background: `${colorDefault}` }} />
+            <div className={styles.date}>Dez 2014 </div>
+            <EventCard 
+              title={"Ingresso na Faculdade"}
+              description={`
                 Fui aprovado para a faculdade de engenharia da computação pela Universidade Federal do Pará - UFPA, reconhecida com uma das melhores do Brasil.
-              </Text>
-            </Box>
-              <Text
-                as={"a"}
-                fontWeight={"bold"}
-                pt={"5"}
-                display={"inline-block"}
-                marginLeft={"70%"} 
-                css={{"transition": "0.3s ease"}}
-                _hover={{"cursor": "pointer", "color": "pink.500"}}>
-                Ler Post
-              </Text>
+              `}
+              path={"/"}
+              category={"course"}
+            />
+          </div>
+
+          <div className={`${styles.container} ${styles.right}`}>
+            <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
+            <div className={styles.stick} style={{ background: `${colorDefault}` }} />
+            <div className={styles.date}>Out 2021</div>
+            <EventCard 
+              title={"Curso: RocketSeat"}
+              description={`
+                Texto aleatório de uma mensagem sobre um curso.
+              `}
+              path={"/"}
+              category={"review"}
+            />
+          </div>
+
+          <div className={`${styles.container} ${styles.left}`}>
+            <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
+            <div className={styles.stick} style={{ background: `${colorDefault}` }} />
+            <div className={styles.date}>Out 2021</div>
+            <EventCard 
+              title={"Curso: RocketSeat"}
+              description={`
+                Texto aleatório de uma mensagem sobre um curso.
+              `}
+              path={"/"}
+              category={"project"}
+            />
+          </div>
+
+          <div className={`${styles.container} ${styles.right}`}>
+            <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
+            <div className={styles.stick} style={{ background: `${colorDefault}` }} />
+            <div className={styles.date}>Out 2021</div>
+            <EventCard 
+              title={"Curso: RocketSeat"}
+              description={`
+                Texto aleatório de uma mensagem sobre um curso.
+              `}
+              path={"/"}
+              category={"review"}
+            />
           </div>
         </div>
-        <div className={`${styles.container} ${styles.right}`}>
-          <div className={styles.date}>22 Oct</div>
-          <div className={styles.content}>
-            <Box display={"flex"} flexDir={"row"} justifyContent={"center"} alignItems={"center"} className={styles.cardHead}>
-              <Image className={styles.icon}
-                width="50px" height="50px" src="http://github.com/NaySoares.png" alt="pic profile" />
-              <Text as={"strong"} fontSize={"lg"} m={"3"} textAlign={"center"}>Ingresso na Faculdade</Text>
-            </Box>
-            <Box>
-            <Text
-                as={"p"}
-                textAlign={"justify"}
-                pt={"3"}
-                fontSize={"md"}
-                m={0}
-                css={{
-                  "textIndent": "10px",
-                  "line-height": "22px"
-                }}
-                >
-                Fui aprovado para a faculdade de engenharia da computação pela Universidade Federal do Pará - UFPA, reconhecida com uma das melhores do Brasil.
-              </Text>
-            </Box>
-              <Text
-                as={"a"}
-                fontWeight={"bold"}
-                pt={"5"}
-                display={"inline-block"}
-                marginLeft={"70%"}
-                css={{"transition": "0.3s ease"}}
-                _hover={{"cursor": "pointer", "color": "pink.500"}}>
-                Ler Post
-              </Text>
-          </div>
-        </div>
-      </div>
-      <div className={styles.tail}>
-        <Image
-          className={styles.icon}
-          width="50px"
-          height="50px"
-          src="http://github.com/NaySoares.png"
-          alt="pic profile"
-        />
-        <p>23/02/2020</p>
-        <strong>Na vida somos apenas viajantes e como viajante não cabe a mim decidir onde vou parar, sigo conhecendo, aprendendo e descobrindo coisas novas.</strong>
-      </div>
-    </Container>
-  </Layout>
-);
+        
+        <Flex
+          direction="column"
+          align="center"
+          justifyContent="center"
+          p={{ base: "15px 0", md: 0 }}
+          borderRadius={{ base: "15px", md: 0 }}
+          border={{ base: `2px dotted ${colorDefault}`, md: 0 }}
+        >
+          <Image
+            borderRadius="full"
+            width="50px"
+            height="50px"
+            src="http://github.com/NaySoares.png"
+            alt="pic profile"
+          />
+          <Text
+            as={"p"}
+            p={"8px"}
+            pb={"2px"}
+            fontSize="12px"
+            borderBottom="1px solid"
+            borderColor={`${colorDefault}`}>
+            23/02/2020
+          </Text>
+          <Text
+            as={"strong"}
+            align="center"
+            m={"20px"}
+          >
+            Na vida somos apenas viajantes e como viajante não cabe a mim decidir onde vou parar, sigo conhecendo, aprendendo e descobrindo coisas novas.
+          </Text>
+        </Flex>
+      </Container>
+    </Layout>
+  )
+};
 
 export default Journey;
