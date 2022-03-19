@@ -1,20 +1,26 @@
-import { Box, Flex, Text, Image} from "@chakra-ui/react";
+import { Box, Flex, Text, Icon} from "@chakra-ui/react";
+import { FaCode, FaBookOpen, FaGraduationCap, FaStarOfLife } from 'react-icons/fa'
 
 const EventCard = ({ title, description, path, category }) => {
   let color = '#D53F8C'
+  let icon
   
   switch (category) {
     case "course":
       color = '#D53F8C'
+      icon = FaGraduationCap
       break;
     case "project":
       color = '#5490FF'
+      icon = FaCode
       break;
     case "review":
       color = '#2FAB73'
+      icon = FaBookOpen
       break;
     default:
       color = '#D53F8C'
+      icon = FaStarOfLife
   }
 
   return (
@@ -32,14 +38,8 @@ const EventCard = ({ title, description, path, category }) => {
       justifyContent={"center"}
       alignItems={"center"}
     >
-      <Image
-        borderRadius="full"
-        width="50px"
-        height="50px"
-        src="http://github.com/NaySoares.png"
-        alt="pic profile"
-      />
-      
+      <Icon as={icon} w={"30px"} h={"30px"} color={`${color}`} />
+    
       <Text
         as={"strong"}
         fontSize={"lg"}
