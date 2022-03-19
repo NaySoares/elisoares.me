@@ -82,7 +82,7 @@ const Navbar = (props) => {
             Snippets
           </LinkItem>
           <LinkItem href="/journey" path={path}>
-            Journey
+            Jornada
           </LinkItem>
         </Stack>
 
@@ -110,7 +110,7 @@ const Navbar = (props) => {
                   <MenuItem as={Link}>Snippets</MenuItem>
                 </NextLink>
                 <NextLink href="/journey" passHref>
-                  <MenuItem as={Link}>Journey</MenuItem>
+                  <MenuItem as={Link}>Jornada</MenuItem>
                 </NextLink>
                 <MenuItem as={Link} href="https://github.com/NaySoares">
                   GitHub
