@@ -1,4 +1,4 @@
-import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
+import {Container, Heading, SimpleGrid, useColorModeValue} from "@chakra-ui/react";
 import Layout from "../../components/layouts/article";
 import Section from "../../components/section";
 import { GridItem } from "../../components/grid-item";
@@ -7,27 +7,43 @@ import { getPrismicClient } from "../../services/prismic";
 import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
 
-const Posts = ({ posts }) => (
-  <Layout title="Posts">
-    <Container>
-      <Heading as="h4" fontSize={20} mb={4}>
-        Posts
-      </Heading>
-      <Section delay={0.1}>
-        <SimpleGrid columns={[1, 2, 2]} gap={6}>
-          {posts.map((post) => (
-            <GridItem
-              key={post.slug}
-              title={post.title}
-              thumbnail={post.cover}
-              href={`/posts/${post.slug}`}
-            />
-          ))}
-        </SimpleGrid>
-      </Section>
-    </Container>
-  </Layout>
-);
+const Posts = ({ posts }) => {
+  const gradientText = useColorModeValue("#319795", "#D53F8C");
+  const gradientTextSecond = useColorModeValue("#5490FF", "#8257E6");
+
+  return(
+    <Layout title="Posts">
+      <Container maxW="100%" mt={30}>
+        <Heading
+            as="h2"
+            size="xl"
+            align="left"
+            mb={{base:2, md:5}}
+            paddingLeft={2}
+            css={{
+              "background-image": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
+              "background-size": "50%",
+              "-webkit-background-clip": "text",
+              "-webkit-text-fill-color": "transparent"
+            }}>
+          Posts
+        </Heading>
+        <Section delay={0.1}>
+          <SimpleGrid columns={[1, 1, 1]} gap={6}>
+            {posts.map((post) => (
+              <GridItem
+                key={post.slug}
+                title={post.title}
+                href={`/posts/${post.slug}`}
+                date={post.updatedAt}
+              />
+            ))}
+          </SimpleGrid>
+        </Section>
+      </Container>
+    </Layout>
+  );
+}
 
 export default Posts;
 
@@ -36,7 +52,7 @@ export const getStaticProps = async () => {
   const response = await prismic.query(
     [Prismic.predicates.at("document.type", "post")],
     {
-      fetch: ["post.title, post.cover"],
+      fetch: ["post.title"],
       pageSize: 100,
     }
   );
@@ -44,8 +60,14 @@ export const getStaticProps = async () => {
   const posts = response.results.map((post) => {
     return {
       slug: post.uid,
-      cover: post.data.cover.url,
       title: RichText.asText(post.data.title),
+      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
+        "pt-BR",
+        {
+          month: "long",
+          year: "numeric",
+        }
+      ),
     };
   });
 
