@@ -17,7 +17,7 @@ const Works = ({ works }) => {
           as="h2"
           size="xl"
           align="left"
-          mb={5}
+          mb={{base:2, md:5}}
           paddingLeft={2}
           css={{
             "background-image": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
