@@ -7,6 +7,7 @@ import EventCard from "../../components/event-card";
 import { getPrismicClient } from "../../services/prismic";
 import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
+import { CardAnimationLeft, CardAnimationRight } from "../../components/layouts/card";
 
 
 const Journey = ({ timeline, currentDate }) => {
@@ -27,7 +28,7 @@ const Journey = ({ timeline, currentDate }) => {
             "-webkit-background-clip": "text",
             "-webkit-text-fill-color": "transparent"
           }}>
-            Esta é a minha jornada, ela é atualizada todos os dias. Role a tela e aproveite comigo toda a minha hist&oacute;ria na programaç&atilde;o.
+          Esta é a minha jornada, ela é atualizada todos os dias. Role a tela e aproveite comigo toda a minha hist&oacute;ria na programaç&atilde;o.
         </Heading>
         <Flex
           className={styles.head}
@@ -51,33 +52,37 @@ const Journey = ({ timeline, currentDate }) => {
           {timeline.map((card, index) => {
             if (index % 2 === 0) {
               return (
-                <div className={`${styles.container} ${styles.left}`}>
-                  <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
-                  <div className={styles.stick} style={{ background: `${colorDefault}` }} />
-                  <div className={styles.date}>{card.date}</div>
-                  <EventCard
-                    title={card.title}
-                    description={card.description}
-                    path={card.path}
-                    category={card.category}
-                    attachment={card.attachment}
-                  />
-                </div>
+                <CardAnimationRight>
+                  <div className={`${styles.container} ${styles.left}`}>
+                    <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
+                    <div className={styles.stick} style={{ background: `${colorDefault}` }} />
+                    <div className={styles.date}>{card.date}</div>
+                    <EventCard
+                      title={card.title}
+                      description={card.description}
+                      path={card.path}
+                      category={card.category}
+                      attachment={card.attachment}
+                    />
+                  </div>
+                </CardAnimationRight>
               )
             } else {
               return (
-                <div className={`${styles.container} ${styles.right}`}>
-                  <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
-                  <div className={styles.stick} style={{ background: `${colorDefault}` }} />
-                  <div className={styles.date}>{card.date}</div>
-                  <EventCard
-                    title={card.title}
-                    description={card.description}
-                    path={card.path}
-                    category={card.category}
-                    attachment={card.attachment}
-                  />
-                </div>
+                <CardAnimationLeft>
+                  <div className={`${styles.container} ${styles.right}`}>
+                    <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
+                    <div className={styles.stick} style={{ background: `${colorDefault}` }} />
+                    <div className={styles.date}>{card.date}</div>
+                    <EventCard
+                      title={card.title}
+                      description={card.description}
+                      path={card.path}
+                      category={card.category}
+                      attachment={card.attachment}
+                    />
+                  </div>
+                </CardAnimationLeft>
               )
             }
           })}

@@ -20,7 +20,7 @@ import ThemeToggleButton from "./theme-toggle-button";
 const LinkItem = ({ href, path, _target, children, ...props }) => {
   const active = path === href;
   const inactiveColor = useColorModeValue("gray200", "whiteAlpha.900");
-  const activeLink = useColorModeValue("glassTeal", "pink.500");
+  const activeLink = useColorModeValue("ocean", "pink.500");
   return (
     <NextLink href={href} passHref>
       <Link
@@ -78,9 +78,6 @@ const Navbar = (props) => {
           <LinkItem href="/posts" path={path}>
             Posts
           </LinkItem>
-          <LinkItem href="/snippets" path={path}>
-            Snippets
-          </LinkItem>
           <LinkItem href="/journey" path={path}>
             Jornada
           </LinkItem>
@@ -105,9 +102,6 @@ const Navbar = (props) => {
                 </NextLink>
                 <NextLink href="/posts" passHref>
                   <MenuItem as={Link}>Posts</MenuItem>
-                </NextLink>
-                <NextLink href="/snippets" passHref>
-                  <MenuItem as={Link}>Snippets</MenuItem>
                 </NextLink>
                 <NextLink href="/journey" passHref>
                   <MenuItem as={Link}>Jornada</MenuItem>
