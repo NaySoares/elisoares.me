@@ -2,7 +2,7 @@ import { Box, Flex, Text, Icon } from "@chakra-ui/react";
 import { FaCode, FaBookOpen, FaGraduationCap, FaStarOfLife } from 'react-icons/fa'
 
 const EventCard = ({ title, description, path, category, attachment }) => {
-  let color = '#D53F8C'
+  let color = '#D53F8C';
   let icon
   let attachmentType
 
