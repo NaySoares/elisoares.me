@@ -69,7 +69,7 @@ const Journey = ({ timeline, currentDate }) => {
               )
             } else {
               return (
-                <CardAnimationLeft>
+                <CardAnimationLeft key={card.slug}>
                   <div className={`${styles.container} ${styles.right}`}>
                     <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
                     <div className={styles.stick} style={{ background: `${colorDefault}` }} />
