@@ -52,7 +52,7 @@ const Journey = ({ timeline, currentDate }) => {
           {timeline.map((card, index) => {
             if (index % 2 === 0) {
               return (
-                <CardAnimationRight>
+                <CardAnimationRight key={card.slug}>
                   <div className={`${styles.container} ${styles.left}`}>
                     <div className={styles.bubble} style={{ background: `${colorDefault}` }} />
                     <div className={styles.stick} style={{ background: `${colorDefault}` }} />
