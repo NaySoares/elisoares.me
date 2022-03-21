@@ -34,7 +34,7 @@ const Page = () => {
             variant="page-title"
             css={{
               "backgroundImage": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
-              "backgroundSize": "50%",
+              "backgroundSize": "100%",
               "WebkitBackgroundClip": "text",
               "WebkitTextFillColor": "transparent"
             }}>
