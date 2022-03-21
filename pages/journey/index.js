@@ -23,10 +23,10 @@ const Journey = ({ timeline, currentDate }) => {
           align="center"
           margin={10}
           css={{
-            "background-image": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
-            "background-size": "100%",
-            "-webkit-background-clip": "text",
-            "-webkit-text-fill-color": "transparent"
+            "backgroundImage": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
+            "backgroundSize": "100%",
+            "WebkitBackgroundClip": "text",
+            "WebkitTextFillColor": "transparent"
           }}>
           Esta é a minha jornada, ela é atualizada todos os dias. Role a tela e aproveite comigo toda a minha hist&oacute;ria na programaç&atilde;o.
         </Heading>

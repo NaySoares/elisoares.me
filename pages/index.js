@@ -33,10 +33,10 @@ const Page = () => {
             size="2xl"
             variant="page-title"
             css={{
-              "background-image": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
-              "background-size": "100%",
-              "-webkit-background-clip": "text",
-              "-webkit-text-fill-color": "transparent"
+              "backgroundImage": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
+              "backgroundSize": "50%",
+              "WebkitBackgroundClip": "text",
+              "WebkitTextFillColor": "transparent"
             }}>
             O Di&aacute;rio de uma Jornada!
           </Heading>

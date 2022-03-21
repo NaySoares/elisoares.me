@@ -1,4 +1,4 @@
-import {Container, Heading, SimpleGrid, useColorModeValue} from "@chakra-ui/react";
+import { Container, Heading, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
 import Layout from "../../components/layouts/article";
 import Section from "../../components/section";
 import { GridItem } from "../../components/grid-item";
@@ -11,21 +11,21 @@ const Posts = ({ posts }) => {
   const gradientText = useColorModeValue("#319795", "#D53F8C");
   const gradientTextSecond = useColorModeValue("#5490FF", "#8257E6");
 
-  return(
+  return (
     <Layout title="Posts">
       <Container maxW="100%" mt={30}>
         <Heading
-            as="h2"
-            size="xl"
-            align="left"
-            mb={{base:2, md:5}}
-            paddingLeft={2}
-            css={{
-              "background-image": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
-              "background-size": "50%",
-              "-webkit-background-clip": "text",
-              "-webkit-text-fill-color": "transparent"
-            }}>
+          as="h2"
+          size="xl"
+          align="left"
+          mb={{ base: 2, md: 5 }}
+          paddingLeft={2}
+          css={{
+            "backgroundImage": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
+            "backgroundSize": "50%",
+            "WebkitBackgroundClip": "text",
+            "WebkitTextFillColor": "transparent"
+          }}>
           Posts
         </Heading>
         <Section delay={0.1}>

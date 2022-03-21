@@ -20,10 +20,10 @@ const Works = ({ works }) => {
           mb={{base:2, md:5}}
           paddingLeft={2}
           css={{
-            "background-image": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
-            "background-size": "50%",
-            "-webkit-background-clip": "text",
-            "-webkit-text-fill-color": "transparent"
+            "backgroundImage": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
+            "backgroundSize": "50%",
+            "WebkitBackgroundClip": "text",
+            "WebkitTextFillColor": "transparent"
           }}>
           Projetos
         </Heading>
