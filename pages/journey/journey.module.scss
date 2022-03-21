@@ -1,0 +1,118 @@
+.timeline {
+  position: relative;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.lineCenter {
+  position: absolute;
+  width: 2px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.container {
+  padding: 15px 30px;
+  position: relative;
+  background: inherit;
+  width: 50%;
+}
+
+.container.left {
+  left: 0;
+}
+
+.container.right {
+  left: 50%;
+}
+
+.bubble {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  right: -8px;
+  border-radius: 16px;
+}
+
+.right .bubble {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: calc(50% - 8px);
+  left: -8px;
+  border-radius: 16px;
+}
+
+.stick {
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  top: calc(50% - 1px);
+  right: 8px;
+}
+
+.right .stick {
+  left: 8px;
+}
+
+.container .date {
+  position: absolute;
+  display: inline-block;
+  top: calc(50% - 8px);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.container.left .date {
+  right: -90px;
+}
+
+.container.right .date {
+  left: -90px;
+}
+
+@media (max-width: 767.98px) {
+  .lineCenter {
+    left: 90px;
+  }
+
+  .container {
+    width: 100%;
+    padding-left: 120px;
+    padding-right: 30px;
+  }
+
+  .container.right {
+    left: 0%;
+  }
+
+  .bubble, 
+  .right .bubble {
+    left: 82px;
+  }
+
+  .stick,
+  .right .stick {
+    left: 98px;
+    border-color: transparent #D53F8C transparent transparent;
+  }
+
+  .container.left .date,
+  .container.right .date {
+    right: auto;
+    left: 1px;
+  }
+  .container.left .content,
+  .container.right .content {
+    padding: 30px 30px 30px 30px;
+    border-radius: 15px;
+  }
+}
