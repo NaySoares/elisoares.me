@@ -1,4 +1,4 @@
-import { Container, Text, useColorModeValue, Flex, Image, Heading } from "@chakra-ui/react";
+import { Container, Text, useColorModeValue, Flex, Image } from "@chakra-ui/react";
 import Layout from "../../components/layouts/article";
 
 import styles from "./journey.module.scss";
@@ -8,28 +8,18 @@ import { getPrismicClient } from "../../services/prismic";
 import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
 import { CardAnimationLeft, CardAnimationRight } from "../../components/layouts/card";
+import { Title } from "../../components/texts/title.js";
 
 
 const Journey = ({ timeline, currentDate }) => {
   const colorDefault = useColorModeValue("#5490FF", "#D53F8C");
-  const gradientText = useColorModeValue("#319795", "#D53F8C");
-  const gradientTextSecond = useColorModeValue("#5490FF", "#8257E6");
+
   return (
     <Layout title="Jornada">
       <Container minWidth="100%" mt={50}>
-        <Heading
-          as="h2"
-          size="lg"
-          align="center"
-          margin={10}
-          css={{
-            "backgroundImage": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
-            "backgroundSize": "100%",
-            "WebkitBackgroundClip": "text",
-            "WebkitTextFillColor": "transparent"
-          }}>
+        <Title fontSize="lg">
           Esta é a minha jornada, ela é atualizada todos os dias. Role a tela e aproveite comigo toda a minha hist&oacute;ria na programaç&atilde;o.
-        </Heading>
+        </Title>
         <Flex
           className={styles.head}
           alignItems="center"
@@ -47,7 +37,6 @@ const Journey = ({ timeline, currentDate }) => {
         </Flex>
         <div className={styles.timeline}>
           <div className={styles.lineCenter} style={{ background: `${colorDefault}` }} />
-
 
           {timeline.map((card, index) => {
             if (index % 2 === 0) {

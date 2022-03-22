@@ -14,7 +14,7 @@ const NotFound = () => {
   const colorButton = useColorModeValue("white", "black");
   return (
     <Container>
-      <Heading as="h1">Not Found</Heading>
+      <Heading as="h1">Opss..</Heading>
       <Text>Página não encontrada</Text>
       <Divider my={6} />
 

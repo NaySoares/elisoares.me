@@ -1,4 +1,4 @@
-import { Container, Heading, SimpleGrid, useColorModeValue } from "@chakra-ui/react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import Layout from "../../components/layouts/article";
 import Section from "../../components/section";
 import { GridItem } from "../../components/grid-item";
@@ -6,28 +6,15 @@ import { GridItem } from "../../components/grid-item";
 import { getPrismicClient } from "../../services/prismic";
 import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
+import { Title } from "../../components/texts/title.js";
 
 const Posts = ({ posts }) => {
-  const gradientText = useColorModeValue("#319795", "#D53F8C");
-  const gradientTextSecond = useColorModeValue("#5490FF", "#8257E6");
-
   return (
     <Layout title="Posts">
       <Container maxW="100%" mt={30}>
-        <Heading
-          as="h2"
-          size="xl"
-          align="left"
-          mb={{ base: 2, md: 5 }}
-          paddingLeft={2}
-          css={{
-            "backgroundImage": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
-            "backgroundSize": "50%",
-            "WebkitBackgroundClip": "text",
-            "WebkitTextFillColor": "transparent"
-          }}>
+        <Title>
           Posts
-        </Heading>
+        </Title>
         <Section delay={0.1}>
           <SimpleGrid columns={[1, 1, 1]} gap={6}>
             {posts.map((post) => (

@@ -13,34 +13,20 @@ import {
 } from "@chakra-ui/react";
 import Layout from "../components/layouts/article";
 import Section from "../components/section";
-import { Paragraph, Quote, LinkQuote } from "../components/paragraph";
+import { Paragraph, Quote, LinkQuote } from "../components/texts/paragraph";
 import { IoLogoTwitter, IoLogoInstagram, IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+import { Title } from "../components/texts/title.js";
 
 const Page = () => {
   const profileImg = `/images/elienai${useColorModeValue("", "-dark")}.jpg`;
-  const gradientText = useColorModeValue("#319795", "#D53F8C");
-  const gradientTextSecond = useColorModeValue("#5490FF", "#8257E6");
+
   return (
     <Layout>
       <Container minWidth="100%" mt={50}>
-        <Box
-          p={5}
-          mb={6}
-          align="center"
-        >
-          <Heading
-            as="h2"
-            size="2xl"
-            variant="page-title"
-            css={{
-              "backgroundImage": `linear-gradient(45deg, ${gradientText}, ${gradientTextSecond})`,
-              "backgroundSize": "100%",
-              "WebkitBackgroundClip": "text",
-              "WebkitTextFillColor": "transparent"
-            }}>
-            O Di&aacute;rio de uma Jornada!
-          </Heading>
-        </Box>
+
+        <Title fontSize="2xl">
+          O Di&aacute;rio de uma Jornada!
+        </Title>
 
         <Box display={{ md: "flex" }}>
           <Box flexGrow={1}>

@@ -8,7 +8,7 @@ import styles from "./work.module.scss";
 
 const Work = ({ work }) => (
     <Layout title="snowgirl">
-      <Container>
+      <Container minWidth="100%" mt={30}>
         <Title path="Projetos" truePath="works">
           {work.title}
         </Title>
