@@ -139,7 +139,7 @@ export const getStaticProps = async () => {
     };
   });
 
-  timeline = timeline.slice(0).reverse();
+  //timeline = timeline.slice(0).reverse();
 
   const currentDate = new Date().toLocaleDateString(
     "pt-BR",

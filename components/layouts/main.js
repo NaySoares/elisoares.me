@@ -10,7 +10,7 @@ const Main = ({ children, router }) => {
         <meta name="description" content="Elienai Website" />
         <meta name="author" content="Elienai Soares" />
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
-        <title>Elienai Soares - Homepage</title>
+        <title>Elienai Soares</title>
       </Head>
 
       <Navbar path = {router.asPath} />
