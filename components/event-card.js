@@ -1,7 +1,12 @@
 import { Box, Flex, Text, Icon } from "@chakra-ui/react";
 import { FaCode, FaBookOpen, FaGraduationCap, FaStarOfLife } from 'react-icons/fa'
 
+import { useModalContext, setUrlCertificate} from '../contexts/ModalContext.js'
+
+
+
 const EventCard = ({ title, description, path, category, attachment }) => {
+  const { onClose, onOpen } = useModalContext();
   let color = '#D53F8C';
   let icon
   let attachmentType
@@ -33,6 +38,11 @@ const EventCard = ({ title, description, path, category, attachment }) => {
       break;
     default:
       attachmentType = null
+  }
+
+  function openModal(path){
+    setUrlCertificate(path)
+    onOpen()
   }
 
   return (
@@ -78,17 +88,34 @@ const EventCard = ({ title, description, path, category, attachment }) => {
       </Box>
       {attachmentType ?
         <>
-          <Text
-            as="a"
-            href={path}
-            fontWeight="bold"
-            pt="5"
-            display="inline-block"
-            marginLeft="auto"
-            css={{ "transition": "0.3s ease" }}
-            _hover={{ "cursor": "pointer", "color": `${color}` }}>
-            {attachmentType}
-          </Text>
+          {attachment == 'certificate' ?
+            <>
+              <Text
+                as="p"
+                fontWeight="bold"
+                pt="5"
+                display="inline-block"
+                marginLeft="auto"
+                onClick={() => openModal(path)}
+                css={{ "transition": "0.3s ease" }}
+                _hover={{ "cursor": "pointer", "color": `${color}` }}>
+                {attachmentType} 
+              </Text>
+            </> :
+            <>
+              <Text
+                as="a"
+                href={path}
+                fontWeight="bold"
+                pt="5"
+                display="inline-block"
+                marginLeft="auto"
+                css={{ "transition": "0.3s ease" }}
+                _hover={{ "cursor": "pointer", "color": `${color}` }}>
+                {attachmentType}
+              </Text>
+            </>
+          }
         </> :
         <>
         </>
