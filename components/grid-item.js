@@ -10,15 +10,13 @@ import {
 } from "@chakra-ui/react";
 import { Global } from "@emotion/react";
 
-export const GridItem = ({ href, title, date }) => (
+export const GridItem = ({ href, title, date, tags }) => (
   <LinkBox cursor="pointer">
     <Flex
       w="100%"
       minH={16}
       p={3}
-      flexDir="row"
-      align={{base:"center", md:"baseLine"}}
-      justify="space-between"
+      flexDir="column"
       borderRadius="12px"
       borderBottom={"2px solid rgba(255,255,255,0.1)"}
       css={{
@@ -30,10 +28,42 @@ export const GridItem = ({ href, title, date }) => (
         "background": "rgba(255,255,255,0.1)"
       }}
     >
-      <Link href={href} passHref>
-        <Text p={2} as="strong" fontSize={{base:"12", sm:"14", md:"18"}}>{title}</Text>
-      </Link>
-      <Text fontSize={14} textAlign="center" color={"gray.500"}>{date}</Text>
+      <Flex
+        direction="row"
+        align={{ base: "center", md: "baseLine" }}
+        justify="space-between"
+      >
+
+        <Link href={href} passHref>
+          <Text px={2} as="strong" fontSize={{ base: "12", sm: "14", md: "18" }}>{title}</Text>
+        </Link>
+        <Text fontSize={14} textAlign="center" color={"gray.500"}>{date}</Text>
+      </Flex>
+      <Box>
+        {tags ?
+          <Flex direction="row" align="baseLine"  >
+            <Text paddingLeft={2} align="left" fontSize={14} fontWeight="bold" color={"gray.500"}>
+              Tags:
+            </Text>
+            {tags.map((tag, index) => {
+              return (
+                <Text
+                  key={index}
+                  align="left"
+                  color={"gray.500"}
+                  ml={2}
+                  fontSize={14}
+                  fontWeight="bold"
+                >
+                  {tag}
+                </Text>
+              )
+            })}
+          </Flex>
+          :
+          <></>
+        }
+      </Box>
     </Flex>
   </LinkBox>
 );
@@ -51,19 +81,19 @@ export const WorkGridItem = ({ children, path, id, title, thumbnail, stack = fal
     _hover={{
       "filter": "grayscale(0%)",
       "background": "rgba(255,255,255,0.1)"
-      }}>
+    }}>
     <Link href={`/${path}/${id}`} passHref>
       <LinkBox cursor="pointer">
-        <Flex direction={{base: "column", sm: "row"}}>
+        <Flex direction={{ base: "column", sm: "row" }}>
 
           <ChakraImage
             src={thumbnail}
             alt={title}
             className="grid-item-thumbnail"
-            maxWidth={{base:"100%", sm: "200px"}}
-            
+            maxWidth={{ base: "100%", sm: "200px" }}
+
           />
-          <Flex direction="column" ml={{base: 0, sm: 5}} mt={{base: 2, sm: 0}} >
+          <Flex direction="column" ml={{ base: 0, sm: 5 }} mt={{ base: 2, sm: 0 }} >
             <Link href={`${path}/${id}`} passHref>
               <Text align="left" mt={2} fontSize={20} fontWeight="bold">
                 {title}
@@ -71,15 +101,15 @@ export const WorkGridItem = ({ children, path, id, title, thumbnail, stack = fal
             </Link>
             <Text align="left" fontSize={14}>{children}</Text>
 
-            {stack ? 
-            <Flex direction="row" mt={{base: 5, sm: "auto"}} align="baseLine"  >
-              <Text align="left" fontSize={18} fontWeight="bold">
-                Stack:
-              </Text>
-              <Text align="left" ml={2} fontSize={14}>{stack}</Text>
-            </Flex>
-            :
-            <></>
+            {stack ?
+              <Flex direction="row" mt={{ base: 5, sm: "auto" }} align="baseLine"  >
+                <Text align="left" fontSize={18} fontWeight="bold">
+                  Stack:
+                </Text>
+                <Text align="left" ml={2} fontSize={14}>{stack}</Text>
+              </Flex>
+              :
+              <></>
             }
           </Flex>
         </Flex>
