@@ -12,7 +12,7 @@ export function ModalContextProvider({ children }) {
   }
 
   return (
-    <ModalContext.Provider value={{disclosure, urlCertificate, setUrlCertificate}} >
+    <ModalContext.Provider value={{disclosure, urlCertificate, updateUrlCertificate}} >
       {children}
     </ModalContext.Provider>
   )

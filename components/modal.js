@@ -10,11 +10,13 @@ import {
   Button,
   useColorModeValue,
   Text,
-  Img } from '@chakra-ui/react'
-import { useModalContext, urlCertificate } from '../contexts/ModalContext.js'
+  Img
+  } from '@chakra-ui/react'
+import { useModalContext } from '../contexts/ModalContext.js'
 
 export const ModalCerticate = () => {
-  const { isOpen, onOpen, onClose } = useModalContext()
+  const { urlCertificate, disclosure } = useModalContext()
+  const { isOpen, onClose } = disclosure;
   const colorDefault = useColorModeValue("#5490FF", "#D53F8C");
 
   return (
