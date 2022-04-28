@@ -9,6 +9,7 @@ import Prismic from "@prismicio/client";
 import { RichText } from "prismic-dom";
 import { CardAnimationLeft, CardAnimationRight } from "../../components/layouts/card";
 import { Title } from "../../components/texts/title.js";
+import ModalCerticate from "../../components/modal";
 
 
 const Journey = ({ timeline, currentDate }) => {
@@ -20,6 +21,7 @@ const Journey = ({ timeline, currentDate }) => {
         <Title fontSize="lg">
           Esta é a minha jornada, ela é atualizada todos os dias. Role a tela e aproveite comigo toda a minha hist&oacute;ria na programaç&atilde;o.
         </Title>
+        <ModalCerticate />
         <Flex
           className={styles.head}
           alignItems="center"
